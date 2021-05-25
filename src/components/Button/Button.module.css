@@ -1,0 +1,16 @@
+.blueBtn{
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.blueBtn:hover {
+  background-color: rgb(122, 163, 238);
+}
+
+.blueBtn:focus {
+  outline: none;
+}
