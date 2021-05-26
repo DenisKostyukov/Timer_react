@@ -1,6 +1,5 @@
 .container{
   display: flex;
-  flex-flow: row wrap;
-  background-color: darkblue;
+  flex-direction: column;
   color: white;
 }

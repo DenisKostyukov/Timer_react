@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SelectedUserList from "./components/SelectedUserList";
 import UserList from "./components/UserList";
 import Timer from "./components/Timer";
-
+import Form from './components/Form'
 const usersDB = [
   {
     id: 1,
@@ -39,6 +39,13 @@ function App(props) {
   const [users, setUsers] = useState(defaultUsers);
   const [isHidden, setIsHidden] = useState(false);
   const hideHandler = () => setIsHidden(!isHidden);
+
+  const registerUser= (user) =>{
+    const newUsersArray = [...users];
+    const lastId = newUsersArray.reduce((acc,cur)=>(cur.id>acc ? cur.id :acc),0);
+    newUsersArray.push({...user,id:lastId+1})
+    setUsers(newUsersArray)
+  }
   return (
     <>
       <header>
@@ -48,6 +55,7 @@ function App(props) {
         <button onClick={hideHandler}>Hide</button>
         {!isHidden && <UserList users={users} setUsers={setUsers} />}
         <Timer />
+        <Form registerUser={registerUser}/>
       </main>
     </>
   );
